@@ -1,0 +1,14 @@
+/* Reset default iframe styles */
+.simple-ecommerce-iframe {
+  position: fixed;
+  overflow: hidden;
+  z-index: 99998;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border: none;
+  margin: 0;
+  padding: 0;
+  zoom: 1;
+}

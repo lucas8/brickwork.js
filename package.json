@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Lucas Stettner",
+  "private": true,
+  "workspaces": [
+    "./packages/web",
+    "./packages/lib"
+  ],
+  "eslintConfig": {
+    "extends": "eslint:recommended"
+  }
+}
