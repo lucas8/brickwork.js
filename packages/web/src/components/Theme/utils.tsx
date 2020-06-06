@@ -9,7 +9,7 @@ import Terser from 'terser'
 import { COLORS } from './colors'
 
 export function setColorsByTheme() {
-  const colors = '🌈'
+  const colors = '⚡️'
 
   const mql = window.matchMedia('(prefers-color-scheme: dark)')
   const prefersDarkFromMQ = mql.matches
@@ -18,7 +18,6 @@ export function setColorsByTheme() {
   const root = document.documentElement
 
   Object.entries(colors).forEach(([name, colorByTheme]) => {
-    console.log(name, colorByTheme)
     const cssVarName = `--${name}`
 
     root.style.setProperty(cssVarName, colorByTheme[colorMode])
@@ -27,7 +26,7 @@ export function setColorsByTheme() {
 
 export function MagicScriptTag() {
   const boundFn = String(setColorsByTheme).replace(
-    "'🌈'",
+    "'⚡️'",
     JSON.stringify(COLORS)
   )
 
