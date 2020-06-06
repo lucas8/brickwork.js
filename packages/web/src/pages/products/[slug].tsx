@@ -59,12 +59,6 @@ export const getStaticProps = async ({ params: { slug } }) => {
     }
   }
 
-  console.log('MARKDOWN', markdownWithMetadata)
-
-  if (!markdownWithMetadata) {
-    return { props: { notFound: true } }
-  }
-
   // Parses the table at the top, describing the title + other metadata
   const parsedMarkdown = matter(markdownWithMetadata.toString())
 

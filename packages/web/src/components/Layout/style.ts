@@ -4,6 +4,7 @@ import theme from '~/components/Theme'
 export const PageContainer = styled.div`
   height: 100%;
   max-width: 100%;
+  background: var(--bg-primary);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

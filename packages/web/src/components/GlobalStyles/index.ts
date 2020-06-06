@@ -22,7 +22,6 @@ const ResetStyles = createGlobalStyle`
     box-sizing: border-box;
     font-size: 18px;
     line-height: ${theme.lineHeights.body};
-    background-color: var(--bg-primary);
     color: var(--text-primary);
     padding: 0;
     margin: 0;
