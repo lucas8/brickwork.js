@@ -3,10 +3,16 @@
   "license": "MIT",
   "author": "Lucas Stettner",
   "private": true,
+  "scripts": {
+    "dev": "concurrently \"yarn workspace web dev\" \"yarn workspace lib watch\" \"yarn workspace client dev\""
+  },
   "workspaces": [
     "packages/*"
   ],
   "eslintConfig": {
     "extends": "eslint:recommended"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0"
   }
 }

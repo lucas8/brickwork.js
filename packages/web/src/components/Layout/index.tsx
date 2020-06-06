@@ -4,12 +4,13 @@ import Background from '../Background'
 
 interface Props {
   children?: React.ReactNode
+  withBackground?: boolean
 }
 
-export default function Layout({ children }: Props) {
+export default function Layout({ children, withBackground = true }: Props) {
   return (
     <S.PageContainer>
-      <Background />
+      {withBackground && <Background />}
       <S.PageWrapper>{children}</S.PageWrapper>
     </S.PageContainer>
   )

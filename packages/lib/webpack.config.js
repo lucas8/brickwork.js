@@ -3,8 +3,8 @@ const webpack = require('webpack')
 const PrettierPlugin = require('prettier-webpack-plugin')
 
 const banner = `
-  simple-ecommerce-JS
-  Copyright (c) simple-ecommerce
+  brickworkjs
+  Copyright (c) brickworkjs
 `
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'build'),
-    library: 'simple-ecommerce',
+    library: 'brickworkjs',
     libraryTarget: 'umd',
   },
   module: {

@@ -1,5 +1,5 @@
 /* Reset default iframe styles */
-.simple-ecommerce-iframe {
+.brickworkjs-ecommerce-iframe {
   position: fixed;
   overflow: hidden;
   z-index: 99998;

@@ -1,10 +1,10 @@
 export default function createOverlay() {
   let frame = new FrameManager()
 
-  document.querySelectorAll('[data-simple-ecommerce-id]').forEach(e => {
+  document.querySelectorAll('[data-brickworkjs-product]').forEach(e => {
     e.onmouseover = () => {
       frame.createIFrame(
-        e.attributes.getNamedItem('data-simple-ecommerce-id').value,
+        e.attributes.getNamedItem('data-brickworkjs-product').value,
       )
     }
     e.onclick = () => {
@@ -40,8 +40,8 @@ class FrameManager {
     this.iframe = document.createElement('iframe')
     this.iframe.setAttribute('allowFullScreen', 'allowfullscreen')
     this.iframe.setAttribute('allowTransparency', 'true')
-    this.iframe.src = `http://localhost:3000?product-id=${productId}`
-    this.iframe.className = 'simple-ecommerce-iframe'
+    this.iframe.src = `http://localhost:3000/products/${productId}`
+    this.iframe.className = 'brickworkjs-ecommerce-iframe'
     document.body.appendChild(this.iframe)
   }
 

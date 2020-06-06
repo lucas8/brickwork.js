@@ -21,7 +21,7 @@ export default function Product({ htmlString, notFound, error }: Props) {
   }
 
   return (
-    <Layout>
+    <Layout withBackground={false}>
       <CenteredLayoutContainer>
         <div dangerouslySetInnerHTML={{ __html: htmlString }} />
       </CenteredLayoutContainer>
