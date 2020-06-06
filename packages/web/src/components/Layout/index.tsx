@@ -15,5 +15,5 @@ export default function Layout({ children }: Props) {
   )
 }
 
-const { CenteredLayoutContainer } = S
-export { CenteredLayoutContainer }
+const { CenteredLayoutContainer, CenterColumn } = S
+export { CenteredLayoutContainer, CenterColumn }

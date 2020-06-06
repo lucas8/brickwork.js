@@ -7,12 +7,13 @@ export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { name, isChecked } = JSON.parse(req.body)
+  const { name, isChecked } = await JSON.parse(req.body)
   const result = await prisma.item.create({
     data: {
       name,
       isChecked,
     },
   })
-  res.json(result)
+
+  res.status(200).json(result)
 }

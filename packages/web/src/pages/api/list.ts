@@ -8,5 +8,6 @@ export default async function handle(
   res: NextApiResponse
 ) {
   const items = await prisma.item.findMany()
-  res.json(items)
+
+  res.status(200).json(items)
 }

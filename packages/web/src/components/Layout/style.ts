@@ -32,3 +32,17 @@ export const CenteredLayoutContainer = styled.div`
   align-items: center;
   justify-content: center;
 `
+
+export const CenterColumn = styled.div`
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  width: 100%;
+  max-width: 640px;
+
+  @media (max-width: 640px) {
+    min-width: 100%;
+    max-width: 100%;
+  }
+`
