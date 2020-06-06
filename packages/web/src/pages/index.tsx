@@ -1,8 +1,7 @@
 import React from 'react'
-import { GetServerSideProps } from 'next'
 import fetch from 'isomorphic-unfetch'
 import useSWR from 'swr'
-import fetcher from '../utils/fetcher'
+import fetcher from '~/utils/fetcher'
 
 interface Item {
   id: number
