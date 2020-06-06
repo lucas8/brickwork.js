@@ -1,1 +1,0 @@
-# Simple Ecommerce Client Library

@@ -4,8 +4,7 @@
   "author": "Lucas Stettner",
   "private": true,
   "workspaces": [
-    "./packages/web",
-    "./packages/lib"
+    "packages/*"
   ],
   "eslintConfig": {
     "extends": "eslint:recommended"

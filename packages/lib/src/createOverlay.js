@@ -8,6 +8,7 @@ export default function createOverlay() {
       )
     }
     e.onclick = () => {
+      console.log('hi')
       // TODO: Display Loader
       frame.displayIFrame()
     }
@@ -26,7 +27,7 @@ class FrameManager {
   setupMessaging = () => {
     window.addEventListener(
       'message',
-      function(msg) {
+      function (msg) {
         this.handleMessage(msg)
       }.bind(this),
       false,
@@ -45,10 +46,8 @@ class FrameManager {
   }
 
   displayIFrame = () => {
-    if (this.isLoaded) {
-      let styles = ['width: 100%', 'height: 100%'].join(';')
-      this.iframe.style = styles
-    }
+    let styles = ['width: 100% !important', 'height: 100% !important'].join(';')
+    this.iframe.style = styles
   }
 
   sendMessage = ({action, payload} = {}) => {
