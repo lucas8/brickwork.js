@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import Layout, { CenteredLayoutContainer } from '~/components/Layout'
 import matter from 'gray-matter'
 import marked from 'marked'
+import Card from '~/components/Card'
 
 interface Props {
   notFound: boolean
@@ -23,7 +24,9 @@ export default function Product({ htmlString, notFound, error }: Props) {
   return (
     <Layout withBackground={false}>
       <CenteredLayoutContainer>
-        <div dangerouslySetInnerHTML={{ __html: htmlString }} />
+        <Card>
+          <div dangerouslySetInnerHTML={{ __html: htmlString }} />
+        </Card>
       </CenteredLayoutContainer>
     </Layout>
   )
