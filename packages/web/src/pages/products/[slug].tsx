@@ -6,13 +6,17 @@ import Layout, { CenteredLayoutContainer } from '~/components/Layout'
 import matter from 'gray-matter'
 import marked from 'marked'
 import Card from '~/components/Card'
-
+import GlobalMarkdownStyles from '~/components/GlobalStyles/markdown'
 interface Props {
   notFound: boolean
   htmlString?: any
   data?: any
   error?: string
 }
+
+// TODO: Edit markdown
+// TODO: SEO
+// TODO: Prisma + Syntax highlighting
 
 export default function Product({ htmlString, notFound, error }: Props) {
   const router = useRouter()
@@ -22,13 +26,19 @@ export default function Product({ htmlString, notFound, error }: Props) {
   }
 
   return (
-    <Layout withBackground={false}>
-      <CenteredLayoutContainer>
-        <Card>
-          <div dangerouslySetInnerHTML={{ __html: htmlString }} />
-        </Card>
-      </CenteredLayoutContainer>
-    </Layout>
+    <React.Fragment>
+      <GlobalMarkdownStyles />
+      <Layout withBackground={false}>
+        <CenteredLayoutContainer>
+          <Card>
+            <div
+              className="markdown"
+              dangerouslySetInnerHTML={{ __html: htmlString }}
+            />
+          </Card>
+        </CenteredLayoutContainer>
+      </Layout>
+    </React.Fragment>
   )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import * as S from './style'
-import Background from '../Background'
+import Background from '~/components/Background'
 
 interface Props {
   children?: React.ReactNode
