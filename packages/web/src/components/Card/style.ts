@@ -4,8 +4,8 @@ import { Img } from '~/components/Typography'
 
 export const CardContainer = styled.div`
   width: 100%;
+  max-height: 100%;
   max-width: 550px;
-  /* max-height: 80%; */
   background: var(--bg-primary);
   box-shadow: ${theme.shadows.largeHover};
   border-radius: 10px;
@@ -29,7 +29,7 @@ export const BackgroundImage = styled.div<{ url: string }>`
   right: 0;
   width: 100%;
   height: 50%;
-  opacity: 0.7;
+  opacity: 0.6;
   background-image: linear-gradient(
       180deg,
       rgba(var(--bg-primary-rgb), 0.65) 0%,
@@ -46,4 +46,13 @@ export const BackgroundImage = styled.div<{ url: string }>`
 export const ContentWrapper = styled.div`
   position: relative;
   z-index: 10;
+`
+
+export const Markdown = styled.div`
+  overflow: scroll;
+  max-height: 400px;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `

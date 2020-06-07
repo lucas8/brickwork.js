@@ -5,11 +5,11 @@ import theme from '~/components/Theme'
 
 interface Props {
   children: React.ReactNode
+  image: string
+  title: string
 }
-const image =
-  'https://images.unsplash.com/photo-1591393223703-56fe1347ac62?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80'
 
-export default function Card({ children }: Props) {
+export default function Card({ children, image, title }: Props) {
   return (
     <S.CardContainer>
       <S.BackgroundImage className="bg-img" url={image} />
@@ -17,17 +17,15 @@ export default function Card({ children }: Props) {
         <T.Header
           style={{ textAlign: 'center', zIndex: 10, position: 'relative' }}
         >
-          Refactoring UI
+          Google Inc
         </T.Header>
         <S.Image draggable={false} src={image} />
-        <T.H5 style={{ marginTop: theme.space[3] }}>
-          Hardcover Collectors Edition
-        </T.H5>
+        <T.H5 style={{ marginTop: theme.space[3] }}>{title}</T.H5>
         <T.P style={{ color: 'var(--text-tertiary)' }}>
-          Created by Steve Schoger
+          Created by Lucas Stettner
         </T.P>
         <T.Hr style={{ margin: `${theme.space[2]} 0` }} />
-        {children}
+        <S.Markdown className="markdown">{children}</S.Markdown>
       </S.ContentWrapper>
     </S.CardContainer>
   )

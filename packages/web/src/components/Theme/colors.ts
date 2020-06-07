@@ -8,7 +8,7 @@ export const COLORS = {
     dark: '33, 33, 33',
   },
   'bg-inset': {
-    light: '#F2F2F2',
+    light: '#E4E4E4',
     dark: '#2C2C2C',
   },
   'text-primary': {

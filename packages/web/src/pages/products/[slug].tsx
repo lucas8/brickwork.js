@@ -17,9 +17,17 @@ interface Props {
 }
 // TODO: SEO
 
-export default function Product({ markdownString, notFound, error }: Props) {
+export default function Product({
+  markdownString,
+  notFound,
+  error,
+  data,
+}: Props) {
   const router = useRouter()
 
+  const { image, title } = data
+
+  // TODO: Update
   if (router.isFallback || notFound) {
     return <div>{error}</div>
   }
@@ -30,14 +38,9 @@ export default function Product({ markdownString, notFound, error }: Props) {
       <GlobalPrismStyles />
       <Layout withBackground={false}>
         <CenteredLayoutContainer>
-          <Card>
+          <Card image={image} title={title}>
             <React.Fragment>
-              <div
-                className="markdown"
-                style={{ maxHeight: 500, overflow: 'scroll' }}
-              >
-                {(processor.processSync(markdownString) as any).result}
-              </div>
+              {(processor.processSync(markdownString) as any).result}
             </React.Fragment>
           </Card>
         </CenteredLayoutContainer>
