@@ -3,6 +3,7 @@ import theme from '~/components/Theme'
 import { Img } from '~/components/Typography'
 
 export const CardContainer = styled.div`
+  z-index: 5;
   width: 100%;
   max-height: 100%;
   max-width: 550px;

@@ -8,6 +8,7 @@ import Card from '~/components/Card'
 import GlobalMarkdownStyles from '~/components/GlobalStyles/markdown'
 import { processor } from '~/utils/remarkProcessor'
 import GlobalPrismStyles from '~/components/GlobalStyles/prism'
+import Wash from '~/components/Wash'
 
 interface Props {
   notFound: boolean
@@ -27,16 +28,12 @@ export default function Product({
 
   const { image, title } = data
 
-  // TODO: Update
-  if (router.isFallback || notFound) {
-    return <div>{error}</div>
-  }
-
   return (
     <React.Fragment>
       <GlobalMarkdownStyles />
       <GlobalPrismStyles />
       <Layout withBackground={false}>
+        <Wash />
         <CenteredLayoutContainer>
           <Card image={image} title={title}>
             <React.Fragment>
@@ -58,26 +55,15 @@ export const getStaticPaths = async () => {
   }))
 
   return {
-    fallback: true,
+    fallback: false,
     paths,
   }
 }
 
 export const getStaticProps = async ({ params: { slug } }) => {
-  let markdownWithMetadata: Buffer
-
-  try {
-    markdownWithMetadata = fs.readFileSync(
-      path.join('src', 'products', slug + '.md')
-    )
-  } catch (error) {
-    return {
-      props: {
-        notFound: true,
-        error: 'Product not found.',
-      },
-    }
-  }
+  let markdownWithMetadata = fs.readFileSync(
+    path.join('src', 'products', slug + '.md')
+  )
 
   const markdownString = markdownWithMetadata.toString()
 
