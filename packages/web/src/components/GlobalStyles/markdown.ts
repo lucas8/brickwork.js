@@ -13,6 +13,7 @@ import {
   code,
   blockquote,
   img,
+  hr,
 } from '~/components/Typography'
 import theme from '~/components/Theme'
 
@@ -20,39 +21,37 @@ const GlobalMarkdownStyles = createGlobalStyle`
   .markdown {
     h1 {
       ${h1};
-      margin-top: ${theme.space[6]};
+      margin: ${theme.space[2]} 0;
     }
     h2 {
       ${h2};
-      margin-top: ${theme.space[6]};
+      margin: ${theme.space[2]} 0;
     }
     h3 {
       ${h3};
-      margin-top: ${theme.space[6]};
+      margin: ${theme.space[2]} 0;
     }
     h4 {
       ${h4};
-      margin-top: ${theme.space[6]};
+      margin: ${theme.space[2]} 0;
     }
     h5 {
       ${h5};
-      margin-top: ${theme.space[6]};
+      margin: ${theme.space[2]} 0;
     }
     h6 {
       ${h6};
-      margin-top: ${theme.space[6]};
+      margin: ${theme.space[2]} 0;
     }
     p {
       ${p};
       line-height: 1.6;
-      margin-top: ${theme.space[3]};
       word-break: break-word;
       &:first-of-type {
         margin-top: 0;
       }
       img {
         ${img};
-        margin-top: ${theme.space[3]};
         max-width: 100%;
       }
     }
@@ -77,11 +76,10 @@ const GlobalMarkdownStyles = createGlobalStyle`
     }
     li {
       ${listItem}
-      margin-top: ${theme.space[3]};
     }
     pre {
+      margin: ${theme.space[3]} 0;
       ${pre}
-      margin: ${theme.space[5]} 0;
     }
     code {
       ${code}
@@ -92,14 +90,11 @@ const GlobalMarkdownStyles = createGlobalStyle`
     }
     blockquote {
       ${blockquote}
-      margin-top: ${theme.space[4]};
-      margin-bottom: ${theme.space[5]};
+      margin: ${theme.space[3]} 0;
     }
     hr {
-      width: 100%;
-      height: 1px;
-      background: var(--bg-inset);
-      margin: ${theme.space[6]} 0;
+      ${hr}
+      margin: ${theme.space[3]} 0;
     }
     table {
       min-width: 100%;
@@ -109,10 +104,9 @@ const GlobalMarkdownStyles = createGlobalStyle`
       border-collapse: collapse;
       margin: ${theme.space[5]} 0;
       table-layout: fixed;
-      white-space: nowrap;
+
       tbody {
         min-width: 100%;
-        display: block;
         overflow: auto;
         width: 100%;
         max-width: 100%;
@@ -123,9 +117,11 @@ const GlobalMarkdownStyles = createGlobalStyle`
         font-weight: ${theme.fontWeights.bold} !important;
         text-align: left;
         padding: ${theme.space[2]};
+
       }
       td {
         ${p};
+        overflow: auto;
         padding: ${theme.space[2]};
         vertical-align: top;
         border-top: 1px solid var(--border-primary);

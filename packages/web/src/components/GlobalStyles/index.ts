@@ -3,7 +3,7 @@ import theme from '~/components/Theme'
 
 const ResetStyles = createGlobalStyle`
   * {
-    box-sizing: inherit;
+    box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     font-weight: inherit;
     margin: 0;

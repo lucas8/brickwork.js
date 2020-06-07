@@ -12,21 +12,23 @@ const image =
 export default function Card({ children }: Props) {
   return (
     <S.CardContainer>
-      <S.BackgroundImage url={image} />
-      <T.Header
-        style={{ textAlign: 'center', zIndex: 10, position: 'relative' }}
-      >
-        Refactoring UI
-      </T.Header>
-      <S.Image draggable={false} src={image} />
-      <T.H5 style={{ marginTop: theme.space[3] }}>
-        Hardcover Collectors Edition
-      </T.H5>
-      <T.P style={{ color: 'var(--text-tertiary)' }}>
-        Created by Steve Schoger
-      </T.P>
-      <T.Hr style={{ marginTop: theme.space[2] }} />
-      {children}
+      <S.BackgroundImage className="bg-img" url={image} />
+      <S.ContentWrapper>
+        <T.Header
+          style={{ textAlign: 'center', zIndex: 10, position: 'relative' }}
+        >
+          Refactoring UI
+        </T.Header>
+        <S.Image draggable={false} src={image} />
+        <T.H5 style={{ marginTop: theme.space[3] }}>
+          Hardcover Collectors Edition
+        </T.H5>
+        <T.P style={{ color: 'var(--text-tertiary)' }}>
+          Created by Steve Schoger
+        </T.P>
+        <T.Hr style={{ margin: `${theme.space[2]} 0` }} />
+        {children}
+      </S.ContentWrapper>
     </S.CardContainer>
   )
 }

@@ -5,7 +5,7 @@ import { Img } from '~/components/Typography'
 export const CardContainer = styled.div`
   width: 100%;
   max-width: 550px;
-  max-height: 80%;
+  /* max-height: 80%; */
   background: var(--bg-primary);
   box-shadow: ${theme.shadows.largeHover};
   border-radius: 10px;
@@ -19,7 +19,6 @@ export const Image = styled(Img)`
   width: 100%;
   height: 200px;
   object-fit: cover;
-  z-index: 10;
   position: relative;
 `
 
@@ -30,6 +29,7 @@ export const BackgroundImage = styled.div<{ url: string }>`
   right: 0;
   width: 100%;
   height: 50%;
+  opacity: 0.7;
   background-image: linear-gradient(
       180deg,
       rgba(var(--bg-primary-rgb), 0.65) 0%,
@@ -40,5 +40,10 @@ export const BackgroundImage = styled.div<{ url: string }>`
   background-position: center center;
   background-size: cover;
   filter: blur(30px);
-  z-index: 1;
+  z-index: 0;
+`
+
+export const ContentWrapper = styled.div`
+  position: relative;
+  z-index: 10;
 `

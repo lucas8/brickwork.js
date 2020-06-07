@@ -35,4 +35,24 @@ export const COLORS = {
     light: '#ABB2B6',
     dark: '#767C7F',
   },
+  'accent-pink': {
+    light: '#FF2D55',
+    dark: '#ff79c6',
+  },
+  'accent-green': {
+    light: '#34C759',
+    dark: '#50fa7b',
+  },
+  'accent-off-white': {
+    light: '#57666F',
+    dark: '#f8f8f2',
+  },
+  'accent-blue': {
+    light: '#007AFF',
+    dark: '#8be9fd',
+  },
+  'accent-yellow': {
+    light: 'var(--accent-pink)',
+    dark: '#f1fa8c',
+  },
 }

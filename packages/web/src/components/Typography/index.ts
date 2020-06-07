@@ -98,7 +98,6 @@ export const p = css`
   }
   code {
     font-size: ${theme.fontSizes[0]};
-    box-shadow: inset 0 0 0 1px var(--border-primary);
   }
   a > code {
     padding: ${theme.space[0]} ${theme.space[1]};
@@ -139,12 +138,13 @@ export const blockquote = css`
   color: var(--text-tertiary);
   display: block;
   position: relative;
+
   &:before {
     content: '';
     height: 100%;
     width: 4px;
     border-radius: 4px;
-    background: var(--border-primary);
+    background: var(--text-link);
     position: absolute;
     left: 0;
   }
@@ -183,8 +183,6 @@ export const pre = css`
   border-radius: 8px;
   overflow-x: scroll;
   overflow-wrap: break-word;
-  box-shadow: 0 0 0 1px var(--border-primary),
-    inset 0 1px 4px rgba(0, 0, 0, 0.04);
   &::-webkit-scrollbar {
     display: none;
   }
@@ -213,11 +211,15 @@ export const Code = styled.code`
   ${code};
 `
 
-export const Hr = styled.hr`
+export const hr = css`
   border-top: 1px solid var(--bg-inset);
   border-bottom: 0px;
   border-left: 0px;
   border-right: 0px;
+`
+
+export const Hr = styled.hr`
+  ${hr}
 `
 
 export const A = styled.a`

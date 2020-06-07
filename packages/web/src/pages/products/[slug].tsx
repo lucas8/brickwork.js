@@ -4,21 +4,20 @@ import path from 'path'
 import { useRouter } from 'next/router'
 import Layout, { CenteredLayoutContainer } from '~/components/Layout'
 import matter from 'gray-matter'
-import marked from 'marked'
 import Card from '~/components/Card'
 import GlobalMarkdownStyles from '~/components/GlobalStyles/markdown'
+import { processor } from '~/utils/remarkProcessor'
+import GlobalPrismStyles from '~/components/GlobalStyles/prism'
+
 interface Props {
   notFound: boolean
-  htmlString?: any
+  markdownString?: any
   data?: any
   error?: string
 }
-
-// TODO: Edit markdown
 // TODO: SEO
-// TODO: Prisma + Syntax highlighting
 
-export default function Product({ htmlString, notFound, error }: Props) {
+export default function Product({ markdownString, notFound, error }: Props) {
   const router = useRouter()
 
   if (router.isFallback || notFound) {
@@ -28,13 +27,18 @@ export default function Product({ htmlString, notFound, error }: Props) {
   return (
     <React.Fragment>
       <GlobalMarkdownStyles />
+      <GlobalPrismStyles />
       <Layout withBackground={false}>
         <CenteredLayoutContainer>
           <Card>
-            <div
-              className="markdown"
-              dangerouslySetInnerHTML={{ __html: htmlString }}
-            />
+            <React.Fragment>
+              <div
+                className="markdown"
+                style={{ maxHeight: 500, overflow: 'scroll' }}
+              >
+                {(processor.processSync(markdownString) as any).result}
+              </div>
+            </React.Fragment>
           </Card>
         </CenteredLayoutContainer>
       </Layout>
@@ -72,14 +76,14 @@ export const getStaticProps = async ({ params: { slug } }) => {
     }
   }
 
-  // Parses the table at the top, describing the title + other metadata
-  const parsedMarkdown = matter(markdownWithMetadata.toString())
+  const markdownString = markdownWithMetadata.toString()
 
-  const htmlString = marked(parsedMarkdown.content)
+  // Parses the table at the top, describing the title + other metadata
+  const parsedMarkdown = matter(markdownString)
 
   return {
     props: {
-      htmlString,
+      markdownString: parsedMarkdown.content,
       data: parsedMarkdown.data,
       notFound: false,
     },
