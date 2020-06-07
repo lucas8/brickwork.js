@@ -4,6 +4,7 @@
   "author": "Lucas Stettner",
   "private": true,
   "scripts": {
+    "start": "concurrently \"yarn workspace web start\" \"yarn workspace lib build && yarn workspace client start\"",
     "dev": "concurrently \"yarn workspace web dev\" \"yarn workspace lib watch\" \"yarn workspace client dev\""
   },
   "workspaces": [
