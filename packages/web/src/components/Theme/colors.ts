@@ -35,6 +35,10 @@ export const COLORS = {
     light: '#ABB2B6',
     dark: '#767C7F',
   },
+  'border-secondary': {
+    light: '#B9C8D0',
+    dark: '#484A4B',
+  },
   'accent-pink': {
     light: '#FF2D55',
     dark: '#ff79c6',
