@@ -7,6 +7,9 @@
     "start": "concurrently \"yarn workspace web start\" \"yarn workspace lib build && yarn workspace client start\"",
     "dev": "concurrently \"yarn workspace web dev\" \"yarn workspace lib watch\" \"yarn workspace client dev\""
   },
+  "husky": {
+    "pre-commit": "cp /packages/lib/build/index.js /packages/web/public/js/overlay.js"
+  },
   "workspaces": [
     "packages/*"
   ],
@@ -14,6 +17,7 @@
     "extends": "eslint:recommended"
   },
   "devDependencies": {
-    "concurrently": "^5.2.0"
+    "concurrently": "^5.2.0",
+    "husky": "^4.2.5"
   }
 }
