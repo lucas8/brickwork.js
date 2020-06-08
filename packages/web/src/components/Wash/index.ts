@@ -1,6 +1,17 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
-const Wash = styled.div`
+const Wash = styled(motion.div).attrs(() => ({
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+  },
+  transition: {
+    opacity: { duration: 1 },
+  },
+}))`
   z-index: 1;
   position: absolute;
   top: 0;

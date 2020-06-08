@@ -18,6 +18,9 @@
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "2.0.0-beta.8",
+    "cookie": "^0.4.1",
+    "cryptr": "^6.0.2",
+    "framer-motion": "^1.11.0",
     "gray-matter": "^4.0.2",
     "hast-util-to-string": "^1.0.3",
     "isomorphic-unfetch": "^3.0.0",
@@ -39,6 +42,8 @@
   },
   "devDependencies": {
     "@prisma/cli": "2.0.0-beta.8",
+    "@types/cookie": "^0.4.0",
+    "@types/cryptr": "^4.0.1",
     "@types/highlight.js": "^9.12.4",
     "@types/node": "13.13.9",
     "@types/react": "16.9.35",

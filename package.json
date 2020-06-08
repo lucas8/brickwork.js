@@ -4,8 +4,8 @@
   "author": "Lucas Stettner",
   "private": true,
   "scripts": {
-    "start": "concurrently \"yarn workspace web start\" \"yarn workspace lib build && yarn workspace client start\"",
-    "dev": "concurrently \"yarn workspace web dev\" \"yarn workspace lib watch\" \"yarn workspace client dev\""
+    "start": "concurrently \"yarn workspace web start\" \"yarn workspace lib build\"",
+    "dev": "concurrently \"yarn workspace web dev\" \"yarn workspace lib watch\""
   },
   "husky": {
     "pre-commit": "cp /packages/lib/build/index.js /packages/web/public/js/overlay.js"

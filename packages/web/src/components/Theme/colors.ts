@@ -27,6 +27,10 @@ export const COLORS = {
     light: '#5978F3',
     dark: '#5978F3',
   },
+  'text-link-hover': {
+    light: '#3C58C8',
+    dark: '#3C58C8',
+  },
   'text-link-rgb': {
     light: '89, 120, 243',
     dark: '89, 120, 243',

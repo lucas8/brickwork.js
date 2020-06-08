@@ -1,7 +1,6 @@
 import React from 'react'
 import fs from 'fs'
 import path from 'path'
-import { useRouter } from 'next/router'
 import Layout, { CenteredLayoutContainer } from '~/components/Layout'
 import matter from 'gray-matter'
 import Card from '~/components/Card'
@@ -11,21 +10,12 @@ import GlobalPrismStyles from '~/components/GlobalStyles/prism'
 import Wash from '~/components/Wash'
 
 interface Props {
-  notFound: boolean
   markdownString?: any
   data?: any
-  error?: string
 }
 // TODO: SEO
 
-export default function Product({
-  markdownString,
-  notFound,
-  error,
-  data,
-}: Props) {
-  const router = useRouter()
-
+export default function Product({ markdownString, data }: Props) {
   const { image, title } = data
 
   return (
