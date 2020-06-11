@@ -8,9 +8,10 @@ interface Props {
   children: React.ReactNode
   image: string
   title: string
+  markdown: React.ReactNode
 }
 
-export default function Card({ children, image, title }: Props) {
+export default function Card({ children, markdown, image, title }: Props) {
   if (!config) {
     console.warn('No brickwork.config.js file found!')
   }
@@ -18,7 +19,7 @@ export default function Card({ children, image, title }: Props) {
   const { storeName, owner } = config
 
   return (
-    <S.CardContainer>
+    <React.Fragment>
       <S.BackgroundImage className="bg-img" url={image} />
       <S.ContentWrapper>
         <T.Header
@@ -30,8 +31,9 @@ export default function Card({ children, image, title }: Props) {
         <T.H5 style={{ marginTop: theme.space[3] }}>{title}</T.H5>
         <T.P style={{ color: 'var(--text-tertiary)' }}>Created by {owner}</T.P>
         <T.Hr style={{ margin: `${theme.space[2]} 0` }} />
-        <S.Markdown className="markdown">{children}</S.Markdown>
+        <S.Markdown className="markdown">{markdown}</S.Markdown>
+        {children}
       </S.ContentWrapper>
-    </S.CardContainer>
+    </React.Fragment>
   )
 }

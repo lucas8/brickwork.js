@@ -8,7 +8,6 @@ export default function createOverlay() {
       )
     }
     e.onclick = () => {
-      console.log('hi')
       // TODO: Display Loader
       frame.displayIFrame()
     }
@@ -20,8 +19,9 @@ class FrameManager {
     this.iframe = null
     this.timer = 0
     this.origin = window.location.origin
-    this.isLoaded = false
     this.setupMessaging()
+    this.isClientReady = false
+    this.userIntent = false
   }
 
   setupMessaging = () => {
@@ -37,28 +37,55 @@ class FrameManager {
   // CLIENT API
 
   createIFrame = productId => {
-    this.iframe = document.createElement('iframe')
-    this.iframe.setAttribute('allowFullScreen', 'allowfullscreen')
-    this.iframe.setAttribute('allowTransparency', 'true')
-    this.iframe.src = `http://localhost:3000/products/${productId}`
-    this.iframe.className = 'brickworkjs-ecommerce-iframe'
-    document.body.appendChild(this.iframe)
+    const newProductLink = `http://localhost:3000/products/${productId}`
+    if (!this.iframe) {
+      this.iframe = document.createElement('iframe')
+      this.iframe.setAttribute('allowFullScreen', 'allowfullscreen')
+      this.iframe.setAttribute('allowTransparency', 'true')
+      this.iframe.src = newProductLink
+      this.iframe.className = 'brickworkjs-ecommerce-iframe'
+      this.iframe.addEventListener('load', this.loadFn, false)
+      document.body.appendChild(this.iframe)
+    } else if (this.iframe.src !== newProductLink) {
+      this.iframe.src = newProductLink
+    }
   }
 
+  // displayIFrame = () => {
+  //   this.sendMessage({
+  //     action: 'displayIntent',
+  //     payload: {intentToDisplay: true},
+  //   })
+  // }
+
   displayIFrame = () => {
-    let styles = ['width: 100% !important', 'height: 100% !important'].join(';')
-    this.iframe.style = styles
+    if (this.isClientReady) {
+      let styles = [
+        'width: 100% !important',
+        'height: 100% !important',
+        'animation: fadeIn ease 500ms;',
+      ].join(';')
+      this.iframe.style = styles
+    } else {
+      this.userIntent = true
+    }
   }
 
   sendMessage = ({action, payload} = {}) => {
-    this.iframe.contentWindow.postMessage(
-      JSON.stringify({action, payload}),
-      this.origin,
-    )
+    this.iframe.contentWindow.postMessage({action, payload}, '*')
   }
 
   handleMessage = msg => {
     var {data} = msg
     this[data.method](data.args)
+  }
+
+  // SERVER API
+
+  clientReady = () => {
+    this.isClientReady = true
+    if (this.userIntent) {
+      this.displayIFrame()
+    }
   }
 }

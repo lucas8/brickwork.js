@@ -2,19 +2,6 @@ import styled from 'styled-components'
 import theme from '~/components/Theme'
 import { Img } from '~/components/Typography'
 
-export const CardContainer = styled.div`
-  z-index: 5;
-  width: 100%;
-  max-height: 100%;
-  max-width: 550px;
-  background: var(--bg-primary);
-  box-shadow: ${theme.shadows.largeHover};
-  border-radius: 10px;
-  padding: ${theme.space[4]};
-  overflow: hidden;
-  position: relative;
-`
-
 export const Image = styled(Img)`
   margin-top: ${theme.space[3]};
   width: 100%;
@@ -51,9 +38,32 @@ export const ContentWrapper = styled.div`
 
 export const Markdown = styled.div`
   overflow: scroll;
-  max-height: 400px;
+  max-height: 200px;
+  overflow-x: hidden;
 
-  ::-webkit-scrollbar {
-    display: none;
+  :hover {
+    /* width */
+    ::-webkit-scrollbar {
+      transition: all ease 150ms;
+      width: 8px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: var(--bg-inset);
+      border-radius: 5px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-primary);
+      transition: background ease 150ms;
+      border-radius: 5px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--border-secondary);
+    }
   }
 `

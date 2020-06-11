@@ -16,7 +16,6 @@ const Button = styled.button`
   word-break: keep-all;
   text-align: center;
   display: inline-block;
-  border: 1px solid transparent;
   box-shadow: none;
   transition: all ease 150ms;
   text-decoration: none;

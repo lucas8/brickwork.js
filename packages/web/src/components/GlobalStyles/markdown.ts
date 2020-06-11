@@ -45,6 +45,7 @@ const GlobalMarkdownStyles = createGlobalStyle`
     }
     p {
       ${p};
+      margin: ${theme.space[2]} 0;
       line-height: 1.6;
       word-break: break-word;
       &:first-of-type {
@@ -91,6 +92,9 @@ const GlobalMarkdownStyles = createGlobalStyle`
     blockquote {
       ${blockquote}
       margin: ${theme.space[3]} 0;
+      p {
+        margin: 0;
+      }
     }
     hr {
       ${hr}

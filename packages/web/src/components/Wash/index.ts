@@ -2,11 +2,13 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
 const Wash = styled(motion.div).attrs(() => ({
-  initial: {
-    opacity: 0,
-  },
-  animate: {
-    opacity: 1,
+  variants: {
+    initial: {
+      opacity: 0,
+    },
+    animate: {
+      opacity: 1,
+    },
   },
   transition: {
     opacity: { duration: 1 },
