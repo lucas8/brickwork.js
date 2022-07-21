@@ -35,7 +35,7 @@
     "remark-rehype": "^7.0.0",
     "styled-components": "^5.1.1",
     "swr": "^0.2.2",
-    "terser": "^4.7.0",
+    "terser": "^4.8.1",
     "unified": "^9.0.0",
     "unist-util-visit": "^2.0.2",
     "use-dark-mode": "^2.3.1"
